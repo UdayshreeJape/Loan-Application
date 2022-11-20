@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        .div1{
+             /*border: 2px solid black;*/
+            width:400px;
+            height: 50px;
+            margin: 50px 480px;
+            text-align: center;
+            color:slateblue;
+            
+        }
+        .div2{
+           margin-left: 500px;
+            width: 300px;
+            padding: 50px 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            font-weight: bold;
+            background-color: white;
+            box-shadow: 6px 6px 6px 6px gray;
+        }
+        .in{
+           width: 250px;
+           margin-left: 20px;
+        }
+        label{
+            margin-left: 20px;
+        }
+        .btn{
+            text-align: center;
+            margin-left: 100px;
+            background-color: green;
+            width: 80px;
+            height: 30px;
+            font-size: medium;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .bodyy{
+            background-image: url(images/bank1.jpg);
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 1000px;
+        }
+        #total{
+            visibility: visible;
+        
+        }
+    </style>
+</head>
+<body >
+    <div class="bodyy">
+
+   <div class="div1">
+    <h1>Loan Application</h1>
+
+   </div>
+   <div class="div2">
+    <form class="first" name="form1" onsubmit="return valid()">
+        <label> Full Name:</label><br>
+        <input type="text" placeholder="Enter your full name" class="in" name="name"><br><br>
+        <label>Email Id:</label><br>
+        <input type="text" placeholder="abc@gmail.com" class="in" name="email"><br><br>
+        <label>  PAN No:  </label><br>
+        <input type="text" class="in" name="pan"><br><br>
+        <label>Loan Amount:</label><br>
+        <input type="text" class="in" name="amt" id="amtt"><br><br>
+        <h3 id="total"></h3>
+        <button class="btn" onclick="emi()">EMI</button>
+        
+        <button class="btn" onsubmit="return valid()" formaction="confirm.html">Submit</button><br>
+    </form>
+   </div>
+   </div>
+
+   <script>
+    /*let urlParams = new URLSearchParams(window.location.search);
+    window.open('url' + urlParams);*/
+
+    
+    function valid()
+    {
+    var name=document.form1.name.value;
+    var email=document.form1.email.value;
+    var pan=document.form1.pan.value;
+    var amt=document.form1.amt.value;
+
+    var at=email.indexOf("@");
+    var dot=email.lastIndexOf(".");
+    var regex = /([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
+    if(name == null || name.length<=4)
+    {
+        alert("Enter a valid name");
+        return false
+    }
+    else if(at<1||dot<at+2||dot+2>email.length)
+    {
+        alert("Please enter valid Email address!!!")
+        return false
+    }
+    else if(pan == null ||pan.length<10||pan.length>10||pan.toUppercase()!=regex)
+    {
+        alert("Please enter valid pan!!!")
+        return false;
+    }
+    
+}
+function emi()
+{
+    var amt = document.querySelector("#amtt").value;
+    var rate=8.5;
+    var month=180;
+    const interest = (amt * (rate * 0.01)) / month;
+    const total = ((amt / month) + interest).toFixed(2);
+    document.write("EMI : (₹)" + total);
+
+    /*document.querySelector("#total")
+        .innerHTML = "EMI : (₹)" + total;*/
+
+}
+/*function OTP() {
+          
+          // Declare a digits variable 
+          // which stores all digits
+          var digits = '0123456789';
+          let OTP = '';
+          for (let i = 0; i < 4; i++ ) 
+          {
+              OTP += digits[Math.floor(Math.random() * 10)];
+          }
+          return OTP;
+      }
+        
+      console.log("OTP of 4 digits: ")
+      console.log( OTP() );*/
+      </script>    
+   
+       
+    
+   
+    
+
+    
+   </script>
+</body>
+</html>

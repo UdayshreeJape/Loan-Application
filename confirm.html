@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Page</title>
+    <link rel="import" href="index.html">
+    <link rel="stylesheet" href="index.html" media="print">
+    <style>
+        .validate{
+           background-color: thistle;
+            margin:80px 500px;
+            text-align: center;
+            height: 400px;
+            width: 500px;
+            background-repeat: no-repeat;
+            padding-top: 100px;
+            box-shadow: 4px 4px 4px 4px gray;
+        }
+        .btn{
+            background-color: green;
+            height: 40px;
+            width: 80px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">Home</a>
+    <form name="form2">
+        
+    <div class="validate">
+        
+        <h2>Enter your 4 digit OTP here:</h2>
+        <input type="text" name="op"><br> <br>
+    
+        
+        <button class="btn" onsubmit="otpval()">Validate</button>
+
+        <h6 style="color: red;">*Please Do not share your OTP with any one!!!</h6>
+    </div>
+    </form>
+    <script>
+       /* let myParamVar = urlParams.get('myParam');
+
+
+        let bod = document.getElementByTagName('body')[0];
+        bod.onload = dis()
+
+         function dis() {
+        document.write("Dear"+name.value);
+       document.write("Thank you for your inquiry. A 4 digit verification number has been send to your email:"+email.value);
+       document.write("Please enter it in the following box and submit for confirmation")
+        }*/
+        function otpval()
+        {
+        var op=document.form2.validate.op.value;
+        
+            if(OTP == op)
+            {
+                alert("Validation Successful!");
+            }
+            else{
+                alert("Validation Failed!!!");
+
+            }
+        }
+        function OTP() 
+        {
+          
+          
+          var digits = '0123456789';
+          let OTP = '';
+          for (let i = 0; i < 4; i++ ) 
+          {
+              OTP += digits[Math.floor(Math.random() * 10)];
+          }
+          return OTP;
+      }
+        
+      console.log("OTP of 4 digits: ")
+      console.log( OTP() );
+        
+       
+        
+
+
+
+    </script>
+</body>
+</html>
