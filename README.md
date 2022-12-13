@@ -1,4 +1,4 @@
-# Loan-Application
+# Sample_Javascript_Project_Loan-Application
 ## Output:
 1. Loan Page:
 
